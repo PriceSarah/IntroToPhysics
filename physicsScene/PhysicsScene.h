@@ -1,6 +1,6 @@
 #pragma once
-#include <glm\ext.hpp>
 #include "PhysicsObject.h"
+#include <glm\ext.hpp>
 #include <vector>
 
 class PhysicsScene
@@ -21,8 +21,8 @@ public:
 	float getTimeStep() const { return m_timeStep; }
 
 protected:
-	glm::vec2 m_gravity;
-	float m_timeStep;
+	glm::vec2					m_gravity;
+	float						m_timeStep = 0.01f;
 	std::vector<PhysicsObject*> m_actors;
 };
 

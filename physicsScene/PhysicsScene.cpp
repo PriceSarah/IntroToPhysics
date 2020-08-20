@@ -1,6 +1,7 @@
 #include "PhysicsScene.h"
 PhysicsScene::PhysicsScene() : m_timeStep(0.01f), m_gravity(glm::vec2(0, 0))
 {
+
 }
 
 void PhysicsScene::addActor(PhysicsObject* actor)
@@ -10,7 +11,13 @@ void PhysicsScene::addActor(PhysicsObject* actor)
 
 void PhysicsScene::removeActor(PhysicsObject* actor)
 {
-
+	for (auto i = m_actors.begin(); i < m_actors.end(); i++)
+	{
+		if (*i == actor)
+		{
+			m_actors.erase(i);
+		}
+	}
 }
 
 void PhysicsScene::update(float deltaTime)
@@ -26,6 +33,7 @@ void PhysicsScene::update(float deltaTime)
 		{
 			pActor->fixedUpdate(m_gravity, m_timeStep);
 		}
+		//spend the time needed for the update
 		accumulatedTime -= m_timeStep;
 	}
 }
