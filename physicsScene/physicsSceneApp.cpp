@@ -3,6 +3,7 @@
 #include "Font.h"
 #include "Input.h"
 #include <Gizmos.h>
+#include "Sphere.h"
 
 physicsSceneApp::physicsSceneApp() {
 
@@ -25,7 +26,12 @@ bool physicsSceneApp::startup() {
 	m_font = new aie::Font("../bin/font/consolas.ttf", 32);
 
 	m_physicsScene = new PhysicsScene();
+	m_physicsScene->setGravity(glm::vec2(0, 0));
 	m_physicsScene->setTimeStep(0.01f);
+
+	Sphere* ball;
+	ball = new Sphere(glm::vec2(-40, 0), glm::vec2(10, 30), 3.0f, 1, glm::vec4(1, 0, 0, 1));
+	m_physicsScene->addActor(ball);
 
 	return true;
 }
