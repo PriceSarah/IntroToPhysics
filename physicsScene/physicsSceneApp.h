@@ -1,14 +1,12 @@
 #pragma once
-
 #include "Application.h"
 #include "Renderer2D.h"
 #include "PhysicsScene.h"
 
-class physicsSceneApp : public aie::Application {
+class PhysicsSceneApp : public aie::Application {
 public:
-
-	physicsSceneApp();
-	virtual ~physicsSceneApp();
+	PhysicsSceneApp();
+	virtual ~PhysicsSceneApp();
 
 	virtual bool startup();
 	virtual void shutdown();
@@ -17,8 +15,7 @@ public:
 	virtual void draw();
 
 protected:
-
-	aie::Renderer2D*	m_2dRenderer;
-	aie::Font*			m_font;
-	PhysicsScene*		m_physicsScene;
+	aie::Renderer2D* m_2dRenderer;
+	aie::Font* m_font;
+	PhysicsScene* m_physicsScene;
 };
