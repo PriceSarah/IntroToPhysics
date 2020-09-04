@@ -3,7 +3,7 @@
 int main() {
 	
 	// allocation
-	auto app = new physicsSceneApp();
+	auto app = new PhysicsSceneApp();
 
 	// initialise and loop
 	app->run("AIE", 1280, 720, false);

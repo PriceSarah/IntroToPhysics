@@ -1,15 +1,16 @@
 #pragma once
-#include <glm\ext.hpp>
+#include "glm\ext.hpp"
 
 enum ShapeType {
 	PLANE = 0,
 	SPHERE,
-	BOX
+	SHAPE_COUNT
 };
 
-class PhysicsObject {
+class PhysicsObject
+{
 protected:
-	PhysicsObject(ShapeType a_shapeID) : m_shapeID(a_shapeID) {}
+	PhysicsObject(ShapeType shapeID) : m_shapeID(shapeID) {}
 
 public:
 	virtual void fixedUpdate(glm::vec2 gravity, float timeStep) = 0;
@@ -17,7 +18,8 @@ public:
 	virtual void makeGizmo() = 0;
 	virtual void resetPosition() {};
 
+	ShapeType getShapeID() { return m_shapeID; }
+
 protected:
 	ShapeType m_shapeID;
 };
-
